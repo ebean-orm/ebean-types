@@ -2,7 +2,12 @@ package io.ebean.types;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.List;
+import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class InetTest {
 
@@ -48,4 +53,19 @@ public class InetTest {
 
     assertEquals(inet0.getAddress(), inet1.getAddress());
   }
+
+  @Test
+  public void test_listOf() {
+
+    List<Inet> inets = Inet.listOf("a", "b");
+    assertThat(inets).contains(new Inet("a"), new Inet("b"));
+  }
+
+  @Test
+  public void test_setOf() {
+
+    Set<Inet> inets = Inet.setOf("a", "b", "a");
+    assertThat(inets).contains(new Inet("a"), new Inet("b"));
+  }
+
 }

@@ -1,7 +1,11 @@
 package io.ebean.types;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * An Cdir address.
@@ -13,6 +17,29 @@ public class Cdir implements Serializable, Cloneable {
   private static final long serialVersionUID = 1;
 
   private final String address;
+
+  /**
+   * Return the list of Cdir addresses.
+   */
+  public static List<Cdir> listOf(String... addresses) {
+
+    List<Cdir> list = new ArrayList<>(addresses.length);
+    for (String address : addresses) {
+      list.add(new Cdir(address));
+    }
+    return list;
+  }
+
+  /**
+   * Return the set of Cdir addresses.
+   */
+  public static Set<Cdir> setOf(String... addresses) {
+    Set<Cdir> set = new LinkedHashSet<>();
+    for (String address : addresses) {
+      set.add(new Cdir(address));
+    }
+    return set;
+  }
 
   /**
    * Create with a given address.

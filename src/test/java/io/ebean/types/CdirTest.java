@@ -2,6 +2,10 @@ package io.ebean.types;
 
 import org.junit.Test;
 
+import java.util.List;
+import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -49,4 +53,19 @@ public class CdirTest {
 
     assertEquals(inet0.getAddress(), inet1.getAddress());
   }
+
+  @Test
+  public void test_listOf() {
+
+    List<Cdir> addrs = Cdir.listOf("a", "b");
+    assertThat(addrs).contains(new Cdir("a"), new Cdir("b"));
+  }
+
+  @Test
+  public void test_setOf() {
+
+    Set<Cdir> addrs = Cdir.setOf("a", "b", "a");
+    assertThat(addrs).contains(new Cdir("a"), new Cdir("b"));
+  }
+
 }
