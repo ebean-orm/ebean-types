@@ -43,6 +43,15 @@ public class Inet implements Serializable, Cloneable {
   }
 
   /**
+   * Return the Inet address.
+   * <p>
+   * Equivalent to using the constructor and here as alternate style.
+   */
+  public static Inet of(String address) {
+    return new Inet(address);
+  }
+
+  /**
    * Create with a given address.
    * <p>
    * The address can contain anything with the intention of supporting ip address

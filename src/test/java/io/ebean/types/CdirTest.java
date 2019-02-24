@@ -68,4 +68,9 @@ public class CdirTest {
     assertThat(addrs).contains(new Cdir("a"), new Cdir("b"));
   }
 
+  @Test
+  public void of() {
+    assertEquals(Cdir.of("foo"), new Cdir("foo"));
+  }
+
 }

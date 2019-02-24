@@ -42,6 +42,15 @@ public class Cdir implements Serializable, Cloneable {
   }
 
   /**
+   * Return the Cdir address.
+   * <p>
+   * Equivalent to using the constructor and here as alternate style.
+   */
+  public static Cdir of(String address) {
+    return new Cdir(address);
+  }
+
+  /**
    * Create with a given address.
    */
   public Cdir(String address) {

@@ -68,4 +68,8 @@ public class InetTest {
     assertThat(inets).contains(new Inet("a"), new Inet("b"));
   }
 
+  @Test
+  public void of() {
+    assertEquals(Inet.of("foo"), new Inet("foo"));
+  }
 }
