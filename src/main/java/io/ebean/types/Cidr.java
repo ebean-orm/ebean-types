@@ -8,53 +8,52 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Deprecated - migrate to Cidr.
+ * An Cidr address.
  * <p>
- * This is likely only going to be used to map to Postgres CDIR type.
+ * This is likely only going to be used to map to Postgres CIDR type.
  */
-@Deprecated
-public class Cdir implements Serializable, Cloneable {
+public class Cidr implements Serializable, Cloneable {
 
   private static final long serialVersionUID = 1;
 
   private final String address;
 
   /**
-   * Return the list of Cdir addresses.
+   * Return the list of Cidr addresses.
    */
-  public static List<Cdir> listOf(String... addresses) {
+  public static List<Cidr> listOf(String... addresses) {
 
-    List<Cdir> list = new ArrayList<>(addresses.length);
+    List<Cidr> list = new ArrayList<>(addresses.length);
     for (String address : addresses) {
-      list.add(new Cdir(address));
+      list.add(new Cidr(address));
     }
     return list;
   }
 
   /**
-   * Return the set of Cdir addresses.
+   * Return the set of Cidr addresses.
    */
-  public static Set<Cdir> setOf(String... addresses) {
-    Set<Cdir> set = new LinkedHashSet<>();
+  public static Set<Cidr> setOf(String... addresses) {
+    Set<Cidr> set = new LinkedHashSet<>();
     for (String address : addresses) {
-      set.add(new Cdir(address));
+      set.add(new Cidr(address));
     }
     return set;
   }
 
   /**
-   * Return the Cdir address.
+   * Return the Cidr address.
    * <p>
    * Equivalent to using the constructor and here as alternate style.
    */
-  public static Cdir of(String address) {
-    return new Cdir(address);
+  public static Cidr of(String address) {
+    return new Cidr(address);
   }
 
   /**
    * Create with a given address.
    */
-  public Cdir(String address) {
+  public Cidr(String address) {
     this.address = address;
   }
 
@@ -74,7 +73,7 @@ public class Cdir implements Serializable, Cloneable {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Cdir inet = (Cdir) o;
+    Cidr inet = (Cidr) o;
     return Objects.equals(address, inet.address);
   }
 
