@@ -1,2 +1,2 @@
 # ebean-types
-Extra value types like Inet, Cdir
+Extra value types like Inet, Cidr
