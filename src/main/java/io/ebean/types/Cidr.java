@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * An Cidr address.
+ * Cidr address.
  * <p>
  * This is likely only going to be used to map to Postgres CIDR type.
  */
@@ -60,6 +60,14 @@ public class Cidr implements Serializable, Cloneable {
   /**
    * Return the address.
    */
+  public String address() {
+    return address;
+  }
+
+  /**
+   * Deprecated migrate to address().
+   */
+  @Deprecated
   public String getAddress() {
     return address;
   }

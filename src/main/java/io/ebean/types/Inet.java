@@ -23,7 +23,6 @@ public class Inet implements Serializable, Cloneable {
    * Return the list of Inet addresses.
    */
   public static List<Inet> listOf(String... addresses) {
-
     List<Inet> list = new ArrayList<>(addresses.length);
     for (String address : addresses) {
       list.add(new Inet(address));
@@ -65,6 +64,14 @@ public class Inet implements Serializable, Cloneable {
   /**
    * Return the address.
    */
+  public String address() {
+    return address;
+  }
+
+  /**
+   * Deprecated migrate to address().
+   */
+  @Deprecated
   public String getAddress() {
     return address;
   }
